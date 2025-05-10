@@ -172,36 +172,28 @@ function startGame() {
         if (countDown <= 0) {
             clearInterval(previewTimer);
             
-            // Balik kembali semua kartu
             allCards.forEach(card => card.classList.remove('flipped'));
             
-            // Mulai timer permainan
             startTimer();
             
-            // Aktifkan permainan
             gameActive = true;
             
-            // Reset tampilan waktu
             timeValue.textContent = '00:00';
         }
     }, 1000);
     
-    // Nonaktifkan tombol mulai dan aktifkan tombol berhenti
     startButton.disabled = true;
     stopButton.disabled = false;
 }
 
-// Hentikan permainan
 function stopGame() {
     gameActive = false;
     clearInterval(timer);
     
-    // Aktifkan tombol mulai dan nonaktifkan tombol berhenti
     startButton.disabled = false;
     stopButton.disabled = true;
 }
 
-// Mulai timer
 function startTimer() {
     timer = setInterval(() => {
         seconds++;
@@ -210,18 +202,15 @@ function startTimer() {
             seconds = 0;
         }
         
-        // Format waktu
         const formattedTime = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
         timeValue.textContent = formattedTime;
     }, 1000);
 }
 
-// Akhiri permainan
 function endGame() {
     gameActive = false;
     clearInterval(timer);
     
-    // Tampilkan layar hasil
     resultTime.textContent = timeValue.textContent;
     resultMoves.textContent = moves;
     resultScore.textContent = score;
@@ -229,16 +218,13 @@ function endGame() {
     resultScreen.classList.add('show');
     overlay.classList.add('show');
     
-    // Aktifkan tombol mulai dan nonaktifkan tombol berhenti
     startButton.disabled = false;
     stopButton.disabled = true;
 }
 
-// Ganti tingkat kesulitan
 function changeDifficulty(newDifficulty) {
     difficulty = newDifficulty;
     
-    // Update tombol yang aktif
     difficultyButtons.forEach(button => {
         button.classList.remove('active');
         if (button.dataset.difficulty === newDifficulty) {
@@ -246,7 +232,6 @@ function changeDifficulty(newDifficulty) {
         }
     });
     
-    // Jika sedang bermain, mulai ulang game
     if (gameActive) {
         restartGame();
     } else {
@@ -254,13 +239,11 @@ function changeDifficulty(newDifficulty) {
     }
 }
 
-// Restart permainan
 function restartGame() {
     stopGame();
     startGame();
 }
 
-// Event Listeners
 startButton.addEventListener('click', startGame);
 stopButton.addEventListener('click', stopGame);
 restartButton.addEventListener('click', restartGame);
@@ -270,14 +253,12 @@ playAgainButton.addEventListener('click', () => {
     restartGame();
 });
 
-// Event listeners untuk tombol tingkat kesulitan
 difficultyButtons.forEach(button => {
     button.addEventListener('click', () => {
         changeDifficulty(button.dataset.difficulty);
     });
 });
 
-// Inisialisasi game saat halaman dimuat
 window.onload = () => {
     initializeGame();
     stopButton.disabled = true;

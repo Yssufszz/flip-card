@@ -34,7 +34,6 @@ body {
     margin: 0 auto;
 }
 
-/* Header Styles */
 header {
     text-align: center;
     margin-bottom: 30px;
@@ -111,7 +110,6 @@ button:active {
     transform: translateY(0);
 }
 
-/* Game Board Styles */
 .game-container {
     display: flex;
     justify-content: center;
@@ -130,7 +128,6 @@ button:active {
     transition: grid-template-columns 0.5s ease;
 }
 
-/* Card Styles */
 .card {
     position: relative;
     width: 100%;
@@ -198,7 +195,6 @@ button:active {
     animation: matchPulse 0.5s ease forwards;
 }
 
-/* Difficulty Selector */
 .difficulty-selector {
     display: flex;
     justify-content: center;
@@ -219,7 +215,6 @@ button:active {
     border: 1px solid transparent;
 }
 
-/* Result Screen */
 .result-screen {
     position: fixed;
     top: 0;
@@ -279,7 +274,6 @@ button:active {
     color: var(--primary);
 }
 
-/* Overlay */
 .overlay {
     position: fixed;
     top: 0;
@@ -298,7 +292,6 @@ button:active {
     pointer-events: all;
 }
 
-/* Animations */
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -360,7 +353,6 @@ button:active {
     }
 }
 
-/* Responsiveness */
 @media screen and (max-width: 768px) {
     header h1 {
         font-size: 2.2rem;
@@ -394,7 +386,6 @@ button:active {
     }
 }
 
-/* Additional card-specific animations */
 .card.flipped.wrong {
     animation: shake 0.5s ease;
 }
@@ -403,7 +394,6 @@ button:active {
     font-size: 2.5rem;
 }
 
-/* Card flip effect */
 .card.flipped .back {
     transform: rotateY(180deg);
 }
