@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Match Game</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Memory Match <span>Game</span></h1>
+            <div class="stats">
+                <div class="moves">
+                    <i class="fas fa-sync-alt"></i>
+                    <span id="moves-count">0</span> Langkah
+                </div>
+                <div class="timer">
+                    <i class="fas fa-hourglass-half"></i>
+                    <span id="time">00:00</span>
+                </div>
+                <div class="score">
+                    <i class="fas fa-star"></i>
+                    <span id="score">0</span> Skor
+                </div>
+            </div>
+            <div class="controls">
+                <button id="start">Mulai Game</button>
+                <button id="stop">Berhenti</button>
+                <button id="restart">Ulang</button>
+            </div>
+        </header>
+        
+        <div class="game-container">
+            <div class="game-board" id="game-board"></div>
+        </div>
+        
+        <div class="difficulty-selector">
+            <button class="difficulty-btn active" data-difficulty="easy">Mudah (4x3)</button>
+            <button class="difficulty-btn" data-difficulty="medium">Sedang (4x4)</button>
+            <button class="difficulty-btn" data-difficulty="hard">Sulit (5x4)</button>
+        </div>
+        
+        <div class="result-screen" id="result-screen">
+            <div class="result-message">
+                <h2>Game Selesai!</h2>
+                <div class="result-stats">
+                    <p>Waktu: <span id="result-time">00:00</span></p>
+                    <p>Langkah: <span id="result-moves">0</span></p>
+                    <p>Skor: <span id="result-score">0</span></p>
+                </div>
+                <button id="play-again">Main Lagi</button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="overlay" id="overlay"></div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
